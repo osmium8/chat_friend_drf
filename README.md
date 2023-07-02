@@ -5,6 +5,38 @@
 * <img src="db_design.png" height="300px">
 * or paste `./dbdiagram[dot]io.txt` at [dbdiagram.io](dbdiagram.io/d)
 
+###### Recommendation algorithm:
+> Time complexity: $O(N * log(5))$
+  Space complexity: $O(N)$
+> 
+> for $2$ users A and B, $\text{interest score}  \propto \frac{1}{\sum{\text{delta of interest parameter}}}$
+> 
+> parameters = ["cricket", "cooking", "yoga", ... ]
+>
+> we do this for each user on each parameter, for a target user
+```Python
+def get_top_five_recommended_users(self, user_id: int):
+        """
+        Helper function to return top 5 recommended users to chat with based on interest
+
+        Time complexity: O(N * log(5)) 
+        Space complexity: O(N)
+
+        ref: from heapq import nsmallest
+        where N is the number of data objects corresponding to user interests
+
+        """
+        user_interests_data = user_data['user_interests']
+        interests_delta_mapping = self.get_interests_delta_mapping(user_id, user_interests_data)
+        
+        # N * log 5
+        top_five_recommended_users = nsmallest(5, interests_delta_mapping, key=itemgetter(1))
+
+        # N * Log N
+        # top_five_recommended_users = sorted(interests_delta_mapping, key=lambda x: x[1], reverse=False)[:5]
+
+        return top_five_recommended_users
+```
 
 #### Test screenshots
 | receiver |  |
@@ -49,7 +81,7 @@
     ```
 
 #### API
-<img src="screenshots/swagger_ui.png">
+<img src="screenshots/swagger_ui.png" width="250px">
 
 ##### api/v1/recommendations/{user_id}/friends
 ```JSON
