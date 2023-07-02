@@ -47,6 +47,13 @@ def get_top_five_recommended_users(self, user_id: int):
 #### Django Structure:
 1.  Project name is `flagship`
 2.  4 apps: `common`, `user`, `chat` and `recommendation`
+3.  Online user list is **cached**
+  ```
+  {   
+      key => 'online-users'
+      value => list containing online user id(s)
+  }
+  ```
 #### Websocket
 ##### ws://127.0.0.1:8000/ws/users/<user_id:int>/chat/
 ```JSON
