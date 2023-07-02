@@ -1,0 +1,6 @@
+id,type,name
+1,SELF,stringstring
+2,SELF,JohnDoe
+3,DM,NULL
+4,DM,NULL
+5,DM,string->John

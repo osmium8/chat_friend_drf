@@ -1,0 +1,3 @@
+id,password,last_login,first_name,last_name,email,created_at,is_admin,is_staff
+1,pbkdf2_sha256$600000$W8CyyNrQqX3ci87caNckV9$JyP3VAHfVtWozl2x/jroMvg6lSAqtlXBmi5aQN07uj0=,NULL,string,string,abc@abc.com,"2023-07-01 10:29:50.636444",0,0
+2,pbkdf2_sha256$600000$LDF0NMWvIVrv1qspGJcznW$hVEODemIhP/z4Ghnh5ugPktrOahReEgJHkgeMJqwY/4=,NULL,John,Doe,abc@abc2.com,"2023-07-01 16:30:20.253179",0,0
